@@ -8,9 +8,9 @@
   "license": "MIT",
   "private": true,
   "repository": {
-  "type" : "git",
-  "url" : "git+https@github.com:tozwierz/pm2-remove-not-in-ecosytem-helper.git"
-}
+    "type" : "git",
+    "url" : "git+https@github.com:tozwierz/pm2-remove-not-in-ecosytem-helper.git"
+  },
   "bin" : {
     "pm2-remove-helper": "./index.js"
   },
