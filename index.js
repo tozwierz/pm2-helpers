@@ -2,13 +2,15 @@
 const pm2 = require('pm2');
 
 const [,, ...args] = process.argv;
+const timeoutTime = 1000;
+
 let ecosystemFile = args[0];
 
 let ecosystemApps;
 
 /**
  * Checks if required paremetr (ecosystem) was given
- * @param argument
+ * @param argument String
  */
 const argumentCheck = (argument) => {
   if (!argument) {
@@ -20,7 +22,7 @@ const argumentCheck = (argument) => {
 
 /**
  * Dynamicaly load ecosystem
- * @param file
+ * @param file String
  */
 const loadEcosystem = (file) => {
   try {
@@ -37,8 +39,8 @@ const loadEcosystem = (file) => {
 };
 
 /**
- * Gets name out of processes array
- * @param processes
+ * Gets names out of processes array
+ * @param processes Array
  * @return Array
  */
 const getNames = processes => processes.reduce((acc, curr) => {
@@ -48,8 +50,8 @@ const getNames = processes => processes.reduce((acc, curr) => {
 
 /**
  * Get items from first array which are not in second
- * @param firstArray
- * @param secondArray
+ * @param firstArray Array
+ * @param secondArray Array
  * @return Array
  */
 const getNotInSecondArray = (firstArray, secondArray) => firstArray
@@ -58,6 +60,7 @@ const getNotInSecondArray = (firstArray, secondArray) => firstArray
 
 /**
  * Removes all given PM2 processes and then disconnect
+ * Hack for PM2 "callbacks" which are returned instantly
  * @param list Array
  */
 const pm2RemoveAll = (list) => {
@@ -73,7 +76,7 @@ const pm2RemoveAll = (list) => {
       console.log('Done');
       clearInterval(timerId);
     }
-  }, 1000);
+  }, timeoutTime);
 };
 
 
