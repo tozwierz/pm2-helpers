@@ -2,7 +2,7 @@
 const pm2 = require('pm2');
 
 const [,, ...args] = process.argv;
-const timeoutTime = 1000;
+const intervalTimems = 1000;
 
 let ecosystemFile = args[0];
 
@@ -76,7 +76,7 @@ const pm2RemoveAll = (list) => {
       console.log('Done');
       clearInterval(timerId);
     }
-  }, timeoutTime);
+  }, intervalTimems);
 };
 
 
