@@ -1,7 +1,7 @@
 {
-  "name": "pm2-remove-not-in-ecosytem-helper",
+  "name": "pm2-helpers",
   "version": "0.1.0",
-  "description": "PM2 helper to remove processes from watching if they are not in ecosytem file",
+  "description": "PM2 helpers. First one is to remove processes from watching if they are not in ecosytem file",
   "main": "index.js",
   "keywords": ["PM2", "Ecosystem", "Helper"],
   "author": "Tomasz Zwierzchoń",
